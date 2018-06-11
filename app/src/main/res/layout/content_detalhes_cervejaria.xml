@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".DetalhesCervejariaActivity"
+    tools:showIn="@layout/activity_detalhes_cervejaria">
+
+    <LinearLayout
+        android:id="@+id/lnLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:srcCompat="@android:drawable/screen_background_light"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtNomeCervejaria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="NOME"
+        android:textColor="?attr/colorAccent"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lnLogo" />
+
+    <TextView
+        android:id="@+id/txtEnderecoCervejaria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/txtNomeCervejaria"
+        app:layout_constraintTop_toBottomOf="@+id/txtNomeCervejaria" />
+
+    <TextView
+        android:id="@+id/txtLbHoraFuncCerv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Horário de funcionamento:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/txtEnderecoCervejaria"
+        app:layout_constraintTop_toBottomOf="@+id/txtEnderecoCervejaria" />
+
+    <TextView
+        android:id="@+id/txtHorarioFuncionamentoCervejaria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="3dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/txtLbHoraFuncCerv"
+        app:layout_constraintTop_toBottomOf="@id/txtLbHoraFuncCerv"
+        />
+
+    <Button
+        android:id="@+id/btLocalizacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="8dp"
+        android:text="Localização"
+        app:layout_constraintStart_toStartOf="@+id/txtHorarioFuncionamentoCervejaria"
+        app:layout_constraintTop_toBottomOf="@+id/txtHorarioFuncionamentoCervejaria" />
+
+    <Button
+        android:id="@+id/btVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Vídeo"
+        app:layout_constraintStart_toEndOf="@+id/btLocalizacao"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btLocalizacao" />
+
+</android.support.constraint.ConstraintLayout>

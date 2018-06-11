@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CervejariasSC</string>
+    <string name="title_activity_detalhes_cervejaria">DetalhesCervejariaActivity</string>
+    <string name="title_activity_localizacao_cervejaria">Localização</string>
+</resources>
