@@ -36,8 +36,8 @@ public class Cervejaria implements Serializable {
     @ColumnInfo(name = "horario_funcionamento")
     private String horarioFuncionamento;
 
-    @ColumnInfo(name = "link_video_youtube")
-    private String linkVideoYoutube;
+    @ColumnInfo(name = "id_video_youtube")
+    private String idVideoYoutube;
 
     @ColumnInfo(name = "link_logo")
     private String linkLogo;
@@ -110,12 +110,12 @@ public class Cervejaria implements Serializable {
         this.horarioFuncionamento = horarioFuncionamento;
     }
 
-    public String getLinkVideoYoutube() {
-        return linkVideoYoutube;
+    public String getIdVideoYoutube() {
+        return idVideoYoutube;
     }
 
-    public void setLinkVideoYoutube(String linkVideoYoutube) {
-        this.linkVideoYoutube = linkVideoYoutube;
+    public void setIdVideoYoutube(String idVideoYoutube) {
+        this.idVideoYoutube = idVideoYoutube;
     }
 
     public String getLinkLogo() {

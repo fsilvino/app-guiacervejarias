@@ -1,11 +1,15 @@
 package cervejariassc.ine5612.ufsc.br.cervejariassc;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -15,6 +19,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import cervejariassc.ine5612.ufsc.br.cervejariassc.adapters.CervejaAdapter;
 import cervejariassc.ine5612.ufsc.br.cervejariassc.intents.DetalhesCervejariaIntent;
 import cervejariassc.ine5612.ufsc.br.cervejariassc.intents.LocalizacaoCervejariaIntent;
 import cervejariassc.ine5612.ufsc.br.cervejariassc.model.Cerveja;
@@ -57,6 +62,25 @@ public class DetalhesCervejariaActivity extends AppCompatActivity {
                 startActivity(new LocalizacaoCervejariaIntent(view.getContext(), cervejaria).getIntent());
             }
         });
+
+        Button btVideo = (Button) findViewById(R.id.btVideo);
+        btVideo.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + cervejaria.getIdVideoYoutube()));
+                Intent navegadorIntent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("http://www.youtube.com/watch?v=" + cervejaria.getIdVideoYoutube()));
+                try {
+                    startActivity(appIntent);
+                } catch (ActivityNotFoundException ex) {
+                    startActivity(navegadorIntent);
+                }
+            }
+        });
+
+        ListView listView = (ListView) findViewById(R.id.lstCervejas);
+        final CervejaAdapter adapter = new CervejaAdapter(this);
+        listView.setAdapter(adapter);
     }
 
     @Override

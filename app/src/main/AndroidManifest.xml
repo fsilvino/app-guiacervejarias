@@ -42,7 +42,7 @@
 
         <activity
             android:name=".LocalizacaoCervejariaActivity"
-            android:label="@string/title_activity_localizacao_cervejaria"></activity>
+            android:label="@string/title_activity_localizacao_cervejaria" />
     </application>
 
 </manifest>
