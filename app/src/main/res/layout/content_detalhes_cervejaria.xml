@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="NOME"
+        android:text="Nome"
         android:textColor="?attr/colorAccent"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -86,5 +86,25 @@
         android:text="Vídeo"
         app:layout_constraintStart_toEndOf="@+id/btLocalizacao"
         app:layout_constraintBaseline_toBaselineOf="@+id/btLocalizacao" />
+
+    <TextView
+        android:id="@+id/txtCervejasDisponiveis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Cervejas Disponíveis"
+        android:textColor="?attr/colorAccent"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btLocalizacao" />
+
+    <ListView
+        android:id="@+id/lstCervejas"
+        android:layout_width="368dp"
+        android:layout_height="178dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/txtCervejasDisponiveis"
+        tools:layout_editor_absoluteX="8dp" />
 
 </android.support.constraint.ConstraintLayout>
