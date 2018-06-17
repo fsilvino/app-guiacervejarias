@@ -36,7 +36,7 @@ public class LocalizacaoCervejariaActivity extends FragmentActivity implements O
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
+        // Add a marker and move the camera
         LatLng coord = new LatLng(cervejaria.getLatitude(), cervejaria.getLongitude());
         mMap.addMarker(new MarkerOptions().position(coord).title(cervejaria.getNome()));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(coord));

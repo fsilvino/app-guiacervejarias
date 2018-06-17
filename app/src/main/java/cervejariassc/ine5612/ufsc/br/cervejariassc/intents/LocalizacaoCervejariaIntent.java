@@ -3,7 +3,6 @@ package cervejariassc.ine5612.ufsc.br.cervejariassc.intents;
 import android.content.Context;
 import android.content.Intent;
 
-import cervejariassc.ine5612.ufsc.br.cervejariassc.DetalhesCervejariaActivity;
 import cervejariassc.ine5612.ufsc.br.cervejariassc.LocalizacaoCervejariaActivity;
 import cervejariassc.ine5612.ufsc.br.cervejariassc.model.Cervejaria;
 
