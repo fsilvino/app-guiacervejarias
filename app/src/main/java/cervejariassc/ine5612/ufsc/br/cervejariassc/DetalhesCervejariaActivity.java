@@ -1,9 +1,11 @@
 package cervejariassc.ine5612.ufsc.br.cervejariassc;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -12,12 +14,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import java.util.ArrayList;
+import java.util.List;
+
 
 import cervejariassc.ine5612.ufsc.br.cervejariassc.adapters.CervejaAdapter;
 import cervejariassc.ine5612.ufsc.br.cervejariassc.intents.DetalhesCervejariaIntent;
@@ -25,6 +24,7 @@ import cervejariassc.ine5612.ufsc.br.cervejariassc.intents.LocalizacaoCervejaria
 import cervejariassc.ine5612.ufsc.br.cervejariassc.model.Cerveja;
 import cervejariassc.ine5612.ufsc.br.cervejariassc.model.Cervejaria;
 import cervejariassc.ine5612.ufsc.br.cervejariassc.util.DownloadImageTask;
+import cervejariassc.ine5612.ufsc.br.cervejariassc.viewmodel.CervejaViewModel;
 
 public class DetalhesCervejariaActivity extends AppCompatActivity {
 
@@ -81,6 +81,23 @@ public class DetalhesCervejariaActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.lstCervejas);
         final CervejaAdapter adapter = new CervejaAdapter(this);
         listView.setAdapter(adapter);
+
+        CervejaViewModel cervejaViewModel = ViewModelProviders.of(this).get(CervejaViewModel.class);
+
+        cervejaViewModel.getCervejas().observe(this, new android.arch.lifecycle.Observer<List<Cerveja>>() {
+            @Override
+            public void onChanged(@Nullable List<Cerveja> cervejas) {
+                List<Cerveja> list = new ArrayList<>();
+                if (cervejas != null) {
+                    for (Cerveja cerveja : cervejas) {
+                        if (cerveja.getIdCervejaria() == cervejaria.getId()) {
+                            list.add(cerveja);
+                        }
+                    }
+                }
+                adapter.setCervejas(list);
+            }
+            });
     }
 
     @Override
